@@ -53,4 +53,5 @@ void MainWindow::on_pushButton_3_clicked()
 	system("copy C:\\Qt\\5.15.1\\mingw81_64\\bin\\libstdc++-6.dll");
 	system("copy C:\\Qt\\5.15.1\\mingw81_64\\bin\\libwinpthread-1.dll");
 
+
 }
