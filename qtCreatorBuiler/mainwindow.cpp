@@ -113,10 +113,13 @@ void MainWindow::on_pushButton_3_clicked()
 	string y = ui->buildLineEdit->text().toStdString();
 
 	string buildCommand = x + "/windeployqt.exe " + y;
+	string buildBinaryCommand = x + "/binarycreator.exe " + y;
+
 
 	QString copyMissing1 = ui->binLineEdit->text() + "/libgcc_s_seh-1.dll";
 	QString copyMissing2 = ui->binLineEdit->text() + "/libstdc++-6.dll";
 	QString copyMissing3 = ui->binLineEdit->text() + "/libwinpthread-1.dll";
+
 
 	if(ui->binLineEdit->text() != empts && ui->buildLineEdit->text() != empts){
 		cout << "build command" << endl;
@@ -138,8 +141,9 @@ void MainWindow::on_pushButton_3_clicked()
 		QMessageBox::warning(this,"error", "remember to select a build dir");
 	} else{
 		QMessageBox::warning(this,"error", "something went wrong, try to set the bin and build dir again");
-
 	}
+
+
 
 
 }
