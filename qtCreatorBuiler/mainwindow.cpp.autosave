@@ -108,15 +108,22 @@ void MainWindow::on_pushButton_2_clicked()
 void MainWindow::on_pushButton_3_clicked()
 {
 	QString empts;
-
+	
+	string x = ui->buildLineEdit->text().toStdString();
+	string y = ui->binLineEdit->text().toStdString();
+	
+	string buildCommand = x + " " + y;
+	
+	string copyMissing1 = "copy C:/Qt/5.15.1/mingw81_64/bin/libgcc_s_seh-1.dll";	
+	string copyMissing2 = "copy C:/Qt/5.15.1/mingw81_64/bin/libstdc++-6.dll";	
+	string copyMissing3 = "copy C:/Qt/5.15.1/mingw81_64/bin/libwinpthread-1.dll";	
 
 	if(ui->binLineEdit->text() != empts && ui->buildLineEdit->text() != empts){
-
-	//system("C:/Qt/5.15.1/mingw81_64/bin/windeployqt.exe C:/Users/Lenna/Documents/qt/qtCreatorBuiler/build-qtCreatorBuiler-Desktop_Qt_5_15_1_MinGW_64_bit-Debug/Debug");
-	//system("copy C:/Qt/5.15.1/mingw81_64/bin/libgcc_s_seh-1.dll");
-	//system("copy C:\\Qt\\5.15.1\\mingw81_64\\bin\\libstdc++-6.dll");
-	//system("copy C:\\Qt\\5.15.1\\mingw81_64\\bin\\libwinpthread-1.dll");
-
+	system(buildCommand.c_str());
+	
+	system(copyMissing1.c_str());
+	system(copyMissing2.c_str());
+	system(copyMissing3.c_str());
 	} else if(ui->binLineEdit->text() == empts){
 		QMessageBox::warning(this,"error", "remember to select a bin dir");
 
